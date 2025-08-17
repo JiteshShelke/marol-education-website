@@ -35,33 +35,6 @@ function initHeaderBehaviors(){
   initDropdowns(header);
 }
 
-/* =============================
-   Live clock
-   Expects elements: #me-date, #me-hh, #me-mm, #me-ss, #me-ampm
-============================= */
-function initClock(scope){
-  function pad(n){ return n<10 ? '0'+n : ''+n; }
-  function update(){
-    var now = new Date();
-    var hh = now.getHours();
-    var ampm = hh >= 12 ? 'p.m.' : 'a.m.';
-    hh = hh % 12; if (hh === 0) hh = 12;
-
-    var d = scope.querySelector('#me-date');
-    if (d) d.textContent = now.toLocaleDateString(undefined, { weekday:'short', day:'2-digit', month:'short', year:'numeric' });
-
-    var H = scope.querySelector('#me-hh');
-    var M = scope.querySelector('#me-mm');
-    var S = scope.querySelector('#me-ss');
-    var A = scope.querySelector('#me-ampm');
-    if (H) H.textContent = pad(hh);
-    if (M) M.textContent = pad(now.getMinutes());
-    if (S) S.textContent = pad(now.getSeconds());
-    if (A) A.textContent = ampm;
-  }
-  update();
-  setInterval(update, 1000);
-}
 
 /* =============================
    Mobile menu toggle

@@ -4105,92 +4105,35 @@ h6 {
 }
 
 /*---------------------------------------------------- */
-
-/*# sourceMappingURL=style.css.map */
-/* Base reveal state */.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 700ms ease, transform 700ms ease, filter 700ms ease;
-  will-change: opacity, transform, filter;
-}
-
-.reveal.in-view {
-  opacity: 1;
-  transform: none;
-  filter: none;
-}
-
-.fade-up { transform: translateY(24px); }
-.fade-in { transform: none; }
-.zoom-in { transform: scale(0.95); }
-.blur-in { filter: blur(6px); }
-.blur-in.in-view { filter: blur(0); }
-
-.delay-1 { transition-delay: 120ms; }
-.delay-2 { transition-delay: 240ms; }
-.delay-3 { transition-delay: 360ms; }
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal.in-view {
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-}
-
-@keyframes fadeUpIn {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: none; }
-}
-
-.reveal.fade-up { opacity: 0; transform: translateY(24px); }
-.reveal.fade-up.in-view {
-  animation: fadeUpIn 700ms ease forwards;
-}
-
-/* When it leaves, reset to base so it can play again */
-.reveal.fade-up:not(.in-view) {
-  opacity: 0;
-  transform: translateY(24px);
-}
-
-/* Base hidden state */
+/* Base state */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  filter: blur(0);
-  transition: opacity 600ms ease, transform 600ms ease, filter 600ms ease;
-  will-change: opacity, transform, filter;
+  transform: translateY(12px);
+  transition: opacity 800ms ease, transform 800ms ease;
 }
 
-/* Visible state when in viewport */
+/* When in view */
 .reveal.in-view {
   opacity: 1;
   transform: none;
-  filter: none;
 }
 
-/* Effect modifiers (optional mix-and-match) */
-.fade-up { transform: translateY(24px); }
-.fade-in { transform: none; }
-.zoom-in { transform: scale(0.96); }
-.blur-in { filter: blur(6px); }
+/* Variants */
+.reveal.fade-in { transform: none; }
+.reveal.fade-down { transform: translateY(-12px); }
+.reveal.zoom-in { transform: scale(0.98); }
+.reveal.flip-up { transform: rotateX(6deg); transform-origin: bottom; }
 
-/* Stagger (optional) */
-.delay-1 { transition-delay: 120ms; }
-.delay-2 { transition-delay: 240ms; }
-.delay-3 { transition-delay: 360ms; }
+/* When in view for variants */
+.reveal.fade-down.in-view,
+.reveal.zoom-in.in-view,
+.reveal.flip-up.in-view { transform: none; }
 
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .reveal, .reveal.in-view {
-    transition: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-    filter: none !important;
-  }
-}
+/* Delays */
+.reveal.delay-1 { transition-delay: 100ms; }
+.reveal.delay-2 { transition-delay: 200ms; }
+.reveal.delay-3 { transition-delay: 300ms; }
+
 
   .site-header {
     background-color: #ffffff !important;

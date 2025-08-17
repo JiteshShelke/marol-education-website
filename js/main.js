@@ -57,17 +57,3 @@ AOS.init({
 
     els.forEach(el => observer.observe(el));
 })();
-
-// Optional: Prevent Bootstrap default click on desktop so dropdown works on hover
-document.addEventListener('DOMContentLoaded', function () {
-    if (window.innerWidth >= 992) {
-        const dropdown = document.querySelectorAll('.nav-item.dropdown');
-        dropdown.forEach(item => {
-            item.addEventListener('click', function (e) {
-                // Allow direct navigation on click
-                const link = this.querySelector('a.nav-link');
-                window.location = link.href;
-            });
-        });
-    }
-});
